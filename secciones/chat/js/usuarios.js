@@ -1,19 +1,40 @@
 $(document).ready(function () {
+    var buscador = document.getElementById('buscador');
+    var caja = document.getElementById('listaUsuarios');
 
-    function loadUsers() {
-        $.ajax({
-            url: 'php/usuarios.php',
-            type: 'POST',
-            success: function (data) {
-                $('#users-list').html(data);
-                
-            }
-        });
+    function buscarUsuarios() {
+        var busqueda = $(buscador).val();
+
+        // Realizar la solicitud AJAX solo si el término no está vacío
+        if (busqueda.trim() !== '') {
+            $.ajax({
+                type: 'POST',
+                url: "php/usuarios.php",
+                data: { buscar: busqueda },
+                success: function (data) {
+                    // Mostrar los resultados en la lista
+                    $(caja).html(data)
+
+                }
+            });
+        } else {
+            // Si el término está vacío, limpiar la lista de resultados
+            $(caja).empty();
+        }
     }
 
-    setInterval(() => {
-        loadUsers();
-    }, 1000);
+    // Manejar el evento input para buscar usuarios en tiempo real
+    $(buscador).on("input", function () {
+        buscarUsuarios();
+    });
+
+    // Manejar el evento blur para limpiar los resultados cuando se pierde el foco
+    $(buscador).on('blur', function () {
+        buscarUsuarios();
+    });
+});
+
+
     // Made by Dazz
 
     /**
@@ -28,4 +49,3 @@ $(document).ready(function () {
      *             \/
      * 
      */
-});
