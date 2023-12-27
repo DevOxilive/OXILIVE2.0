@@ -66,6 +66,7 @@ try {
     }
     ?>
     </body>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="../js/interfazArchi.js"></script>
     <script src="../js/documentos.js"></script>
     <!-- controlador de los estilos del chat -->
