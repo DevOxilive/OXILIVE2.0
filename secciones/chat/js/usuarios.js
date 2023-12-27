@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     function loadUsers() {
         $.ajax({
-            url: 'src/get_user.php',
+            url: 'php/usuarios.php',
             type: 'POST',
             success: function (data) {
                 $('#users-list').html(data);
