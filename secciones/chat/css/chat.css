@@ -1,14 +1,14 @@
-body {
+/* body {
     background-color: rgb(59, 59, 59);
-}
+} */
 
 /* Estilo para el contenedor principal del chat */
 #chat-container {
     /* pociocionamiento del chat a lo ancho de forma automatica */
     width: auto;
     margin: 0 auto;
-    border: 1px solid #ffffff;
-    background-color: #dcdcdc;
+    border: 1px solid black;
+    background-color: #ffffff;
     color: black;
     padding: 10px;
     height: 55vh;
@@ -18,7 +18,7 @@ body {
 
 .chat-header {
     background-color: #0966b3;
-    color: #ffffff;
+    color: black;
     padding: 10px;
     display: flex;
     justify-content: space-between;
@@ -34,6 +34,7 @@ body {
     margin-top: 10px;
     display: flex;
     align-items: center;
+    border: 1px solid black;
     /* Alinea verticalmente en el centro */
 }
 
@@ -41,7 +42,7 @@ body {
 #message {
     flex: 1;
     padding: 5px;
-    border: none;
+    border: 1px solid black;
 }
 
 #send {
@@ -82,7 +83,7 @@ button[type="submit"] {
 
 /* estilos de los textos */
 .burbuja {
-    background-color: #ffffff;
+    background-color: #e6e6e6;
     border-radius: 20px;
     margin-bottom: 10px;
     padding: 10px;

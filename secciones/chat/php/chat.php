@@ -10,8 +10,6 @@ try {
         throw new Exception("Error Processing Request", 1);
     }
 
-    echo "id seleccionado " . $id . "<br>";
-
     $sql = "SELECT * FROM usuarios where token = '$id'";
     $stmt = $con->prepare($sql);
     $stmt->execute();
@@ -33,14 +31,19 @@ try {
         if (count($resultado) > 0) {
             foreach ($resultado as $filas) {
                 $enviarA = $filas['id_usuarios'];
-                echo '<div>
-                    <h1>
-                    ' . $filas['Usuario'] . '
-                    </h1>
-                </div>';
             }
 
         ?>
+            <div class="chat-header">
+                <h2>
+                    <a href="../index.php">salir</a>
+                    <?php
+                    echo '<img src="" class="iconoUsuario" alt="proximamente :V">';
+                    echo $filas['Usuario'];
+                    ?>
+                    <button id="btnMostrar">forler de archivos</button>
+                </h2>
+            </div>
             <div id="chat-container">
                 <div id="chat-messages">
                     <!-- aqui se generan los mensajes -->
@@ -49,7 +52,7 @@ try {
             <div id="chat-form">
                 <input type="hidden" value="<?php echo $_SESSION['us'] ?>" id="user">
                 <label for="fileInput" class="custom-file-upload" id="fileLabel">
-                    <i class="bi bi-paperclip"></i>
+                    enviar archivo
                 </label>
                 <input type="file" id="fileInput" name="file">
                 <input type="text" id="message" placeholder="Escribe tu mensaje" maxlength="500">
