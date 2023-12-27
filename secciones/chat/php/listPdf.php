@@ -2,10 +2,8 @@
 
         <?php
         try {
-
-            include '../../../cargaDoc/control.php';
             $output = $_POST['output'];
-            mostrarPDF($con, 'documentos/', $output);
+            echo "si funciona";
         } catch (Exception $e) {
             echo ":D";
         }

@@ -5,7 +5,7 @@ try {
 
     session_start();
     // Conexión a la base de datos (ajusta los valores según tu configuración)
-    include '../../../connection/conexion.php';
+    include '../../../config/baseDatos.php';
     if (!isset($_SESSION['idus'])) {
         throw new Exception(":D ");
     }
