@@ -12,3 +12,7 @@ try {
 } catch (Exception $e) {
     echo "Error: " . $e->getMessage() . " para conectar la base de datos";
 }
+
+// base de datos: u199199938_swoe   
+// nombre de usuario: u199109938_hackerman
+// contraseña: SwOe@xilive12

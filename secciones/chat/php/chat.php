@@ -33,7 +33,7 @@ try {
         foreach ($resultado as $filas) {
             echo '<div>
                     <h1>
-                    ' . $filas['Usuario'] .'
+                    ' . $filas['Usuario'] . '
                     </h1>
                 </div>';
         }
