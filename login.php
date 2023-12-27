@@ -20,9 +20,9 @@ if (isset($_SESSION['us'])) {
         <h3>Iniciar sesion</h3>
         <img src="assets/img/OXILIVE.ico" alt="Logo">
         <form action="procesarLogin.php" method="post">
-            <input type="text" name="username" placeholder="Usuario" required>
+            <input type="text" name="username" placeholder="Usuario" maxlength="20" minlength="8" required>
             <br>
-            <input type="password" name="password" placeholder="Contraseña" required>
+            <input type="password" name="password" placeholder="Contraseña" maxlength="20" minlength="8" required>
             <br>
             <input type="submit" value="Iniciar sesión">
         </form>
