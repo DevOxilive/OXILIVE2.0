@@ -13,13 +13,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute();
         $datos = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if (count($datos) > 0) {
+        if ($usuario === $datos['Usuario']) {
             if ($datos && password_verify($contraseña, $datos["paswword"])) {
                 $_SESSION['id'] = $datos['id_usuarios'];
                 $_SESSION['us'] = $datos["Usuario"];
-
 ?>
-
                 <script>
                     alert("bienvenido");
                     window.location = 'index.php';
