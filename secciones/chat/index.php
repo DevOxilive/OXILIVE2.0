@@ -6,13 +6,8 @@ include("../../config/session.php");
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="<?php echo $url_base ?>" type="image/x-icon">
 <title>Oxilive</title>
-u199109938_hackerMan
-u199109938_sistema
-sudo_@Abc123456@&
 
 <body>
-
-    <br>
     regresar: <a href="<?php echo $url_base ?>">puchale aquí</a>
     <br>
     cerrar sesion: <a href="<?php echo $url_base . "cerrar.php" ?>">puchale aquí</a>
@@ -27,9 +22,8 @@ sudo_@Abc123456@&
             <!-- listado de usuarios -->
         </ul>
     </div>
+</body>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="js/usuarios.js"></script>
     <script src="js/selecChat.js"></script>
-</body>
-
 </html>

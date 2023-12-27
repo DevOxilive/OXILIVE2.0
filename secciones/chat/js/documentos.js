@@ -1,19 +1,20 @@
 $(document).ready(function () {
-
-    function loadUsers() {
+    var output = $('#output').val();
+    function documents() {
         $.ajax({
-            url: 'src/get_user.php',
+            url: 'listPdf.php',
             type: 'POST',
+            data: { output, output},
             success: function (data) {
-                $('#users-list').html(data);
-                
+                $('#list-documentos').html(data);
             }
         });
     }
 
     setInterval(() => {
-        loadUsers();
-    }, 1000);
+        documents();
+    }, 2000);
+    
     // Made by Dazz
 
     /**

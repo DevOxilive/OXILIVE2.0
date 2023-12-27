@@ -26,17 +26,36 @@ try {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>chat rico</title>
     </head>
-
     <body>
     <?php
     if (count($resultado) > 0) {
         foreach ($resultado as $filas) {
+            $enviarA = $filas['id_usuarios'];
             echo '<div>
                     <h1>
                     ' . $filas['Usuario'] . '
                     </h1>
                 </div>';
         }
+        
+        ?>
+        <div id="chat-container">
+                        <div id="chat-messages">
+                            <!-- aqui se generan los mensajes -->
+                        </div>
+                    </div>
+                    <div id="chat-form">
+                        <input type="hidden" value="<?php echo $_SESSION['us'] ?>" id="user">
+                        <label for="fileInput" class="custom-file-upload" id="fileLabel">
+                            <i class="bi bi-paperclip"></i>
+                        </label>
+                        <input type="file" id="fileInput" name="file">
+                        <input type="text" id="message" placeholder="Escribe tu mensaje" maxlength="500">
+                        <input type="hidden" value="<?php echo $enviarA; ?>" id='output'>
+                        <button id="send"><img src="../img/pngwing.com.png" alt="" width="30px"></button>
+                    </div>
+                    </div
+        <?php
     } else {
         echo "error rico";
     }
@@ -45,5 +64,8 @@ try {
 }
     ?>
     </body>
-
+    <script src="../js/interfazArchi.js"></script>
+    <script src="../js/documentos.js"></script>
+    <!-- controlador de los estilos del chat -->
+    <script src="../js/chatPriv.js"></script>
     </html>
