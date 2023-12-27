@@ -10,7 +10,7 @@ $(document).ready(function () {
             $.ajax({
                 type: 'POST',
                 url: "php/usuarios.php",
-                data: { buscar: busqueda },
+                data: { buscar: busqueda }, 
                 success: function (data) {
                     // Mostrar los resultados en la lista
                     $(caja).html(data)
