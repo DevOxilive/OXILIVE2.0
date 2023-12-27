@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     try {
 
-        $stmt = $con->prepare("SELECT * FROM usuarios WHERE usuario = $usuario");
+        $stmt = $con->prepare("SELECT * FROM usuarios WHERE usuario = '$usuario'");
         $stmt->execute();
         $datos = $stmt->fetch(PDO::FETCH_ASSOC);
 
