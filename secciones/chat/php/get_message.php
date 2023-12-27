@@ -24,7 +24,7 @@ try {
             } else {
                 $leido = '<i class="bi bi-check2"></i>';
             }
-            if ($_SESSION['idus'] === $fila['id_entrada']) {
+            if ($_SESSION['id'] === $fila['id_entrada']) {
 
                 echo '<div class="burbuja-you">' . $mensaje . " " . $leido .  '. ' . $fila['hora_minuto'] .  '</div>';
             } else {
