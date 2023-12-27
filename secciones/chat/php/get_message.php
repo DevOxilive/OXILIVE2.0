@@ -4,15 +4,15 @@ try {
     //code...
 
     session_start();
-    // Conexión a la base de datos (ajusta los valores según tu configuración)
+
     include '../../../config/baseDatos.php';
-    if (!isset($_SESSION['idus'])) {
+    if (!isset($_SESSION['id'])) {
         throw new Exception(":D ");
     }
 
     // Consulta para obtener los mensajes
     $salida = $_POST['output'];
-    $sentensia = $con->prepare("SELECT *, DATE_FORMAT(fecha_hora, '%H:%i') AS hora_minuto FROM mensajes WHERE id_salida = {$_SESSION['idus']} AND id_entrada = {$salida} OR id_entrada = {$_SESSION['idus']} AND id_salida = {$salida} ORDER BY id_msg ASC");
+    $sentensia = $con->prepare("SELECT *, DATE_FORMAT(fecha_hora, '%H:%i') AS hora_minuto FROM mensajes WHERE id_salida = {$_SESSION['id']} AND id_entrada = {$salida} OR id_entrada = {$_SESSION['id']} AND id_salida = {$salida} ORDER BY id_msg ASC");
     $sentensia->execute();
     $resultado = $sentensia->fetchAll(PDO::FETCH_ASSOC);
     // comprueba que tenga filas la consulta si las tiene carga el chat
