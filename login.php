@@ -22,7 +22,7 @@ if (isset($_SESSION['us'])) {
         <form action="procesarLogin.php" method="post">
             <input type="text" name="username" placeholder="Usuario" maxlength="20" required>
             <br>
-            <input type="password" name="password" placeholder="Contraseña" maxlength="20" minlength="8" required>
+            <input type="password" name="password" placeholder="Contraseña" maxlength="20" minlength="4" required>
             <br>
             <input type="submit" value="Iniciar sesión">
         </form>
