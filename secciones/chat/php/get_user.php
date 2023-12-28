@@ -1,6 +1,6 @@
 <?php
 try {
-    //code...
+    //este archivo genera los usuariospara poder mandarles mensaje, tambien posiciona por el mensaje más actual
     session_start();
     if (!isset($_SESSION['id'])) {
         throw new Exception(":D ");

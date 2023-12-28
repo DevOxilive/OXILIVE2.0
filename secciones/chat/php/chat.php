@@ -1,4 +1,5 @@
 <?php
+// este archivo espera por la url el valor de el usuario a mandar mensaje para poder pintar el chat, y tiene un control de errores por alguna modificacion en la url
 try {
     include("../../../config/session.php");
     if (!isset($_GET['id'])) {
@@ -62,14 +63,15 @@ try {
             </div>
     <?php
         } else {
-            echo "error rico";
+            echo "error de comunicacion";
         }
     } catch (Exception $e) {
-        echo "evita manipular la url o te llevo preso";
+        echo "evita manipular la url!!!<br>estamos llamando a la policia<br>";
     }
     ?>
     </body>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- en mantenimiento -->
     <script src="../js/interfazArchi.js"></script>
     <script src="../js/documentos.js"></script>
     <!-- controlador de los estilos del chat -->

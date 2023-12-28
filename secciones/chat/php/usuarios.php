@@ -1,4 +1,5 @@
 <?php
+// este archivo busca un usuario en especifico para poder mandar mensajes
 session_start();
 $id_sesionActual = $_SESSION["id"];
 include('../../../config/baseDatos.php');
