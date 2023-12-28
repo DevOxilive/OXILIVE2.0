@@ -26,11 +26,11 @@ try {
             }
             if ($_SESSION['id'] === $fila['id_entrada']) {
 
-                echo '<div class="burbuja-you">' . $mensaje . " " . $leido .  '. ' . $fila['hora_minuto'] .  '</div>';
+                echo '<div class="burbuja-you">' . $mensaje . " " . $leido .  '.' . '</div>';
             } else {
                 $sent = $con->prepare("UPDATE mensajes SET leido = '1' WHERE id_msg={$fila['id_msg']}");
                 $sent->execute();
-                echo '<div class="burbuja">' . $mensaje . ' .' . $fila['hora_minuto'] . '</div>';
+                echo '<div class="burbuja">' . $mensaje . ' .<br>' . $fila['hora_minuto'] . '</div>';
             }
         }
     } else {

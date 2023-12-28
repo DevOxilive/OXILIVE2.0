@@ -5,18 +5,13 @@ include('../../../config/baseDatos.php');
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuario = $_POST['buscar'];
 
-    // $sql = "SELECT * FROM usuarios 
-    // WHERE (Nombres LIKE '%$usuario%'
-    // OR Apellidos LIKE '%$usuario%' 
-    // OR Usuario LIKE '%$usuario%') 
-    // AND id_usuarios <> $id_sesionActual;";
-
-    $sql = "SELECT Nombres, Apellidos, Usuario FROM usuarios 
-    WHERE CONCAT(Nombres, ' ', Apellidos) LIKE '%$usuario%' 
+    //busqueda con OR agrupado y la condicion para evitar mostrar contenido
+    $sql = "SELECT id_usuarios, Nombres, Apellidos, Usuario, token FROM usuarios 
+    WHERE (CONCAT(Nombres, ' ', Apellidos) LIKE '%$usuario%' 
     OR CONCAT(Apellidos, ' ' ,Nombres) LIKE '%$usuario%' 
     OR (Nombres LIKE '%$usuario%'
     OR Apellidos LIKE '%$usuario%' 
-    OR Usuario LIKE '%$usuario%') 
+    OR Usuario LIKE '%$usuario%'))
     AND id_usuarios <> $id_sesionActual;";
 
     $stmt = $con->prepare($sql);

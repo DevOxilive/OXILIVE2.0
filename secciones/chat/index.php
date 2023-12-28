@@ -5,6 +5,7 @@ include("../../config/session.php");
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="shortcut icon" href="<?php echo $url_base ?>" type="image/x-icon">
+<link rel="stylesheet" href="css/index.css">
 <title>Oxilive</title>
 
 <body>
@@ -21,9 +22,13 @@ include("../../config/session.php");
         <ul class="cajaUsuarios" id="listaUsuarios">
             <!-- listado de usuarios -->
         </ul>
+    <ul id="chats">
+
+    </ul>
     </div>
 </body>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="js/usuarios.js"></script>
     <script src="js/selecChat.js"></script>
+    <script src="js/chats.js"></script>
 </html>
