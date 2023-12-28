@@ -20,6 +20,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     foreach ($resultado as $key => $value) {
-        echo '<a href="php/chat.php?id=' . $value['token'] . '"><li>' . $value['Usuario'] . ': ' . $value['Nombres'] . ' ' . $value['Apellidos'] . '</li></a>';
+        echo '<a href="php/chat.php?id=' . $value['token'] . '">' . $value['Usuario'] . ': ' . $value['Nombres'] . ' ' . $value['Apellidos'] . '</a>';
     }
 }

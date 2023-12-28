@@ -46,8 +46,8 @@ try {
             } else {
                 $clase = '';
             }
-            echo '<a href="php/chat.php?id=' . $fila['token'] . '" ' . $clase . '><li>
-                <img src="' . "". '" alt="img perfil"><b>' . $fila['Usuario'] . '</b> ' . "" . '<br><div class="mensaje-previo"> ' . $por . $estatusMensaje . '</div></li>
+            echo '<a href="php/chat.php?id=' . $fila['token'] . '" ' . $clase . '>
+                <img src="' . "". '" alt="img perfil"><b>' . $fila['Usuario'] . '</b> ' . "" . '<br><div class="mensaje-previo"> ' . $por . $estatusMensaje . '</div>
                 </a>';
         }
     } else {
