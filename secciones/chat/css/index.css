@@ -1,8 +1,11 @@
 /* estilos del listado de los usuarios 
 en la vista principal de seleccion */
-
+body {
+    background-color: #fff;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 /* este es el contenedor donde se general los usuarios */
-.user-list-container {
+.listar-usuarior{
     width: 100%;
     margin: 0 auto;
     background-color: #fff;
@@ -60,4 +63,29 @@ en la vista principal de seleccion */
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+
+.contenedor {
+    border: solid 1px black;
+    padding: 5px;
+    margin: 20px;
+    box-shadow: 5px 5px 5px black;
+}
+
+.buscador {
+    border: solid 1px black;
+    padding: 10px;
+}
+
+li {
+    color: black;
+    display: flex;
+    list-style: none;
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
+    padding: 10px 0 10px;
+}
+
+a {
+    text-decoration: none;
 }
