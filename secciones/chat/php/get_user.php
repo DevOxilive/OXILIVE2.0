@@ -47,7 +47,7 @@ try {
                 $clase = '';
             }
             echo '<a href="php/chat.php?id=' . $fila['token'] . '" ' . $clase . '>
-                <img src="' . "". '" alt="img perfil"><b>' . $fila['Usuario'] . '</b> ' . "" . '<br><div class="mensaje-previo"> ' . $por . $estatusMensaje . '</div>
+                <img src="' . $fila['Foto_perfil']. '" alt="img perfil"><b>' . $fila['Usuario'] . '</b> ' . "" . '<br><div class="mensaje-previo"> ' . $por . $estatusMensaje . '</div>
                 </a>';
         }
     } else {
