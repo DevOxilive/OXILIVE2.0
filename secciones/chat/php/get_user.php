@@ -46,13 +46,26 @@ try {
             } else {
                 $clase = '';
             }
-            echo '<a href="php/chat.php?id=' . $fila['token'] . '" ' . $clase . '>
-                <img src="' . $fila['Foto_perfil']. '" alt="img perfil"><b>' . $fila['Usuario'] . '</b> ' . "" . '<br><div class="mensaje-previo"> ' . $por . $estatusMensaje . '</div>
-                </a>';
+            echo '<div class="opcion">
+                    <a href="php/chat.php?id=' . $fila['token'] . '" ' . $clase . '>
+                        <div class="cuentas">
+                            <div class="foto">
+                                <img src="' . $fila['Foto_perfil'] . '" alt="img perfil" id="fotoPerfil">
+                            </div>
+                            <div class="usuario">
+                                <b>' . $fila['Usuario'] . '</b>
+                                <span>' . $conectado . '</span>
+                            </div>
+                        </div>' . '
+                        <div class="mensaje-previo"> 
+                            ' . $por . $estatusMensaje . '
+                        </div>
+                    </a>
+                </div>';
         }
     } else {
         // si no envia el mensaje de comenzar chat
-        echo '<li></b>Aún no hay personas registradas</b><li>';
+        echo '<li></b>Aún no hay personas registradas</b></li>';
     }
 } catch (Exception $e) {
     echo $e->getMessage();   //throw $th;

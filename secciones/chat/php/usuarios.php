@@ -7,9 +7,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuario = $_POST['buscar'];
 
     //busqueda con OR agrupado y la condicion para evitar mostrar contenido
-    $sql = "SELECT id_usuarios, Nombres, Apellidos, Usuario, token FROM usuarios 
-    WHERE (CONCAT(Nombres, ' ', Apellidos) LIKE '%$usuario%' 
-    OR CONCAT(Apellidos, ' ' ,Nombres) LIKE '%$usuario%' 
+    $sql = "SELECT estatus, id_usuarios,Foto_perfil, Nombres, Apellidos, Usuario, token FROM usuarios 
+    WHERE (CONCAT(Nombres, ' ', Apellidos, ' ') LIKE '%$usuario%' 
+    OR CONCAT(Apellidos, ' ' ,Nombres, ' ') LIKE '%$usuario%' 
     OR (Nombres LIKE '%$usuario%'
     OR Apellidos LIKE '%$usuario%' 
     OR Usuario LIKE '%$usuario%'))
@@ -19,7 +19,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute();
     $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    foreach ($resultado as $key => $value) {
-        echo '<a href="php/chat.php?id=' . $value['token'] . '">' . $value['Usuario'] . ': ' . $value['Nombres'] . ' ' . $value['Apellidos'] . '</a>';
+    if (count($resultado) > 0) {
+        foreach ($resultado as $key => $value) {
+            if ($value['estatus'] == 1) {
+                $conectado = '<img id="conexion" src="img/enLinea.png" alt="">';
+            } else if ($value['estatus'] == 0) {
+                $conectado = '<img id="conexion" src="img/sinLinea.png" alt="">';
+            }
+            echo '<div class="opcion">
+                    <a href="php/chat.php?id=' . $value['token'] . '">
+                        <div class="cuentas">
+                            <div class="foto">
+                                <img src="' . $value['Foto_perfil'] . '" alt="img perfil" id="fotoPerfil">
+                            </div>
+                            <div class="usuario">
+                                <b>' . $value['Usuario'] . ': ' . $value['Nombres'] . ' ' . $value['Apellidos'] . '</b>
+                                <span>' . $conectado . '</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>';
+        }
+    } else {
+        echo '<h1>No se encontraron resultados<br>:(</h1>';
     }
 }

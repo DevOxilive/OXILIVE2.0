@@ -76,5 +76,11 @@ try {
     <script src="../js/documentos.js"></script>
     <!-- controlador de los estilos del chat -->
     <script src="../js/chatPriv.js"></script>
+    <!-- Enlace al archivo CSS de Bootstrap desde CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <!-- Enlace al archivo JavaScript de Bootstrap (requiere Popper.js y jQuery) desde CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
     </html>

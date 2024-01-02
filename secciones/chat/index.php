@@ -14,18 +14,26 @@ include("../../config/session.php");
     cerrar sesion: <a href="<?php echo $url_base . "cerrar.php" ?>">puchale aquí</a>
     <br>
     <div class="contenedor">
-        <h1>usuarios</h1>
         <div>
             <div class="buscador">
-                <label for="buscador">buscar usuario</label>
-                <input type="text" name="buscador" placeholder="buscar usuarios" id="buscador" maxlength="30">
+                <label for="buscador">
+                    <h1>Buscar usuario</h1>
+                    <input type="text" name="buscador" placeholder="Escribe el nombre del usuario..." id="buscador" maxlength="30">
+                </label>
             </div>
-            <ul class="cajaUsuarios" id="listaUsuarios">
-                <!-- listado de usuarios -->
-            </ul>
-            <ul id="chats">
-
-            </ul>
+            <div class="usuariosCaja">
+                <ul class="cajaUsuarios" id="listaUsuarios">
+                    <!-- listado de usuarios -->
+                </ul>
+            </div>
+            <div class="encabezado">
+                <h1>Chats</h1>
+            </div>
+            <div class="cajaChats">
+                <div id="chats">
+                    <!-- CHATS disponibles -->
+                </div>
+            </div>
         </div>
     </div>
 </body>
