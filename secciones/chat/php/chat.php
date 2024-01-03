@@ -42,7 +42,7 @@ try {
         ?>
             <div class="conteiner">
                 <div class="chat-header">
-                    <a href="../index.php"><-< /a>
+                    <a href="../index.php"><-</a>
                             <?php
                             echo '<img src="' . $filas['Foto_perfil'] . '" class="iconoUsuario" alt="foto de perfil">';
                             echo "<div class='usuario'>";
