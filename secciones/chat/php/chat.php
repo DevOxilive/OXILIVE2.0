@@ -31,35 +31,43 @@ try {
         <?php
         if (count($resultado) > 0) {
             foreach ($resultado as $filas) {
+                if ($filas['estatus'] == 1) {
+                    $conectado = '<img id="conexion" src="../img/enLinea.png" alt="">';
+                } else if ($filas['estatus'] == 0) {
+                    $conectado = '<img id="conexion" src="../img/sinLinea.png" alt="">';
+                }
                 $enviarA = $filas['id_usuarios'];
             }
 
         ?>
-            <div class="chat-header">
-                <h2>
-                    <a href="../index.php">salir</a>
-                    <?php
-                    echo '<img src="" class="iconoUsuario" alt="proximamente :V">';
-                    echo $filas['Usuario'];
-                    ?>
-                    <button id="btnMostrar">forler de archivos</button>
-                </h2>
-            </div>
-            <div id="chat-container">
-                <div id="chat-messages">
-                    <!-- aqui se generan los mensajes -->
+            <div class="conteiner">
+                <div class="chat-header">
+                    <a href="../index.php"><-< /a>
+                            <?php
+                            echo '<img src="' . $filas['Foto_perfil'] . '" class="iconoUsuario" alt="foto de perfil">';
+                            echo "<div class='usuario'>";
+                            echo "<h2>" . $filas['Usuario'] . "</h2>";
+                            echo $conectado;
+                            echo "</div>";
+                            ?>
+                            <button class="boton-folder" id="btnMostrar">archivos</button>
+                            </h2>
                 </div>
-            </div>
-            <div id="chat-form">
-                <input type="hidden" value="<?php echo $_SESSION['us'] ?>" id="user">
-                <label for="fileInput" class="custom-file-upload" id="fileLabel">
-                    enviar archivo
-                </label>
-                <input type="file" id="fileInput" name="file">
-                <input type="text" id="message" placeholder="Escribe tu mensaje" maxlength="500">
-                <input type="hidden" value="<?php echo $enviarA; ?>" id='output'>
-                <button id="send"><img src="../img/pngwing.com.png" alt="" width="30px"></button>
-            </div>
+                <div id="chat-container">
+                    <div id="chat-messages">
+                        <!-- aqui se generan los mensajes -->
+                    </div>
+                </div>
+                <div id="chat-form">
+                    <input type="hidden" value="<?php echo $_SESSION['us'] ?>" id="user">
+                    <label for="fileInput" class="custom-file-upload" id="fileLabel">
+                        +<!-- 📎 -->
+                    </label>
+                    <input type="file" id="fileInput" name="file">
+                    <input type="text" id="message" placeholder="Escribe tu mensaje" maxlength="500">
+                    <input type="hidden" value="<?php echo $enviarA; ?>" id='output'>
+                    <button id="send"><img src="../img/pngwing.com.png" alt="" width="30px"></button>
+                </div>
             </div>
     <?php
         } else {
