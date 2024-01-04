@@ -7,6 +7,7 @@ $(document).ready(function () {
             data: { output, output},
             success: function (data) {
                 $('#list-documentos').html(data);
+                $console.log(response);
             }
         });
     }

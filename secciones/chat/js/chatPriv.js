@@ -65,9 +65,10 @@ $(document).ready(function () {
             data: formData,
             processData: false,
             contentType: false,
-            success: function () {
+            success: function (response) {
                 fileLabel.classList.remove('file-selected');
                 console.log("Archivo enviado correctamente.");
+                console.log(response);
                 // Realiza cualquier acción adicional después de cargar el archivo
             }
         });

@@ -3,8 +3,9 @@
     padding: 10px;
     height: 55vh;
     overflow-y: scroll;
-    background-color: #dcdcdc;
+    background-color: #acacac;
     color: black;
+    
 }
 
 #list-documentos {

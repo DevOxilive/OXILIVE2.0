@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($datos && password_verify($contraseña, $datos["paswword"])) {
                 $_SESSION['id'] = $datos['id_usuarios'];
                 $_SESSION['us'] = $datos["Usuario"];
+                $_SESSION['puesto'] = $datos['id_departamentos'];
 ?>
                 <script>
                     alert("bienvenido");

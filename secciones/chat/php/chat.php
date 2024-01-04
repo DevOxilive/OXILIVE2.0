@@ -15,7 +15,6 @@ try {
     $stmt = $con->prepare($sql);
     $stmt->execute();
     $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
 ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -24,6 +23,7 @@ try {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../css/chat.css">
+        <link rel="stylesheet" href="../css/archivos.css">
         <title>chat rico</title>
     </head>
 
@@ -42,7 +42,7 @@ try {
         ?>
             <div class="conteiner">
                 <div class="chat-header">
-                    <a href="../index.php"><-</a>
+                    <a href="../index.php"> <- </a>
                             <?php
                             echo '<img src="' . $filas['Foto_perfil'] . '" class="iconoUsuario" alt="foto de perfil">';
                             echo "<div class='usuario'>";
@@ -53,6 +53,20 @@ try {
                             <button class="boton-folder" id="btnMostrar">archivos</button>
                             </h2>
                 </div>
+                <form action="deletefile.php" method="post">
+                    <div class="vistaArchivos" id="miGaleria">
+                        <div id="list-documentos">
+
+                        </div>
+                    </div>
+                </form>
+                <form action="eliminar_documento.php" method="post">
+                    <div class="vistaArchivos" id="miGaleria">
+                        <div id="list-documentos">
+
+                        </div>
+                    </div>
+                </form>
                 <div id="chat-container">
                     <div id="chat-messages">
                         <!-- aqui se generan los mensajes -->
