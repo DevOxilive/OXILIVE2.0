@@ -60,13 +60,6 @@ try {
                         </div>
                     </div>
                 </form>
-                <form action="eliminar_documento.php" method="post">
-                    <div class="vistaArchivos" id="miGaleria">
-                        <div id="list-documentos">
-
-                        </div>
-                    </div>
-                </form>
                 <div id="chat-container">
                     <div id="chat-messages">
                         <!-- aqui se generan los mensajes -->
