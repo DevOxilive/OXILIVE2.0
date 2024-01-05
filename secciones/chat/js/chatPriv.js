@@ -58,16 +58,19 @@ $(document).ready(function () {
         formData.append('user', $('#user').val());
         formData.append('output', $('#output').val());
         formData.append('userC', $('#userChat').val());
-
+    
         $.ajax({
-            url: 'send_file.php', // Ruta del archivo que maneja la subida de archivos
+            url: 'send_file.php',
             type: 'POST',
             data: formData,
             processData: false,
             contentType: false,
-            success: function () {
+            success: function (data) {
                 fileLabel.classList.remove('file-selected');
                 console.log("Archivo enviado correctamente.");
+            },
+            error: function (xhr, status, error) {
+                console.error("Error en la subida del archivo:", error);
             }
         });
     }

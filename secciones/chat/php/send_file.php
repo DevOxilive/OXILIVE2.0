@@ -1,7 +1,7 @@
 <?php
+session_start();
 include '../../../ctrlArchivos/control/Archivero.php';
 include '../../../config/baseDatos.php';
-session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = $_POST['user'];
@@ -26,9 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $sentencia->execute();
             $sentencia = $con->prepare("INSERT INTO documentos (nombreArchi, id_envia, id_recibe, persona) VALUES ('$nombreArchi', '$envio','$output', '$user')");
             $sentencia->execute();
-
         } catch (\Throwable $th) {
-            echo "error en el sistema intentalo más tarde";
+            echo "error en el sistema intentalo más tarde. Detalles del error: " . $th->getMessage();
             $obj->eliminarArchivo('documentos/' . $nombreArchi);
         }
     } else {

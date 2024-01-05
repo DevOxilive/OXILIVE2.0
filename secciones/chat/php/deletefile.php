@@ -37,7 +37,7 @@ if (isset($_POST['documento_id'])) {
         }
         ?>
         <script>
-            alert("archivo eliminado correctamente");
+            alert("archivo eliminado: <?php echo " " . $nombreArchi . " "; ?> correctamente");
             window.history.back();
         </script>
 <?php
