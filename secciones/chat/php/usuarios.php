@@ -6,14 +6,14 @@ include('../../../config/baseDatos.php');
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuario = $_POST['buscar'];
 
-    //busqueda con OR agrupado y la condicion para evitar mostrar contenido
+    //busqueda con OR agrupado y la condicion para evitar mostrar al usuario en sesion actual.
     $sql = "SELECT estatus, id_usuarios,Foto_perfil, Nombres, Apellidos, Usuario, token FROM usuarios 
     WHERE (CONCAT(Nombres, ' ', Apellidos, ' ') LIKE '%$usuario%' 
     OR CONCAT(Apellidos, ' ' ,Nombres, ' ') LIKE '%$usuario%' 
     OR (Nombres LIKE '%$usuario%'
     OR Apellidos LIKE '%$usuario%' 
     OR Usuario LIKE '%$usuario%'))
-    AND id_usuarios <> $id_sesionActual;";
+    AND id_usuarios <> $id_sesionActual;"; // diferente de #sesion actual.
 
     $stmt = $con->prepare($sql);
     $stmt->execute();
