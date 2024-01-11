@@ -1,0 +1,48 @@
+// Aplicacion del chat.
+INTRODUCCION:
+codigo separado, para que el envio de archivos sea más limpio , con el fin de porder dale
+más claridad y que sea más entendible...
+
+para laragon esta bien el codigo, no cuenta con errores, pero para el servidor de la nuve,
+tiene un problema para llamar al archivo que envia los archivos.
+
+aún estoy trabajando en buscar la forma de mosltrar los archivos en ele mismo chat para 
+poder acceder desde ahí...
+
+DESARROLLO:
+la aplicacion está contruida con jquery, para la respuesta asincrona. "simulacion" 
+(reeconcideracion de websockets otra vez, por las peticiones del doctor)...
+
+investigar :(
+
+menu:
+el menu sollo es una consulta cada 2 segundos donde trae todos los usuarios a esepcion de el 
+usuario que este en la sesion actual.
+y para mostrar el contenido con el javascript, indicandole donde se mostrara el contenido...
+
+CHAT:
+para el control de archivos, se utilizan metodos que controlan el guardado en carpetas, 
+creacion de carpetas, eliminacion de archivos y almacenamientos de archivos.
+para distingir de chat son que mensajes, se utiliza una consulta en la base de datos que
+separa los mensajes por el identificador de cada usuario, esto quiere decir que si el 
+usuario 1 le manda mensaje al usuario 2, se almacena el la base de datos:
+
+id_entrada = a quien le entra el mensaje.
+id_salida = quien dio salida de mensaje.
+
+con eso entendido, lo que queda es consultar cada 1 segundo la base de datos para que se
+sientan las respuestas en tiempo real.
+
+introduccion de notificaciones dentro el chat:
+
+preview:
+se platea agregar un a tabla nueva a la base de datos, para llevar el control de los disparos
+de las notificaciones.
+
+para mandar las notificaciones, se debera implementar la libreria js de push.js que puede 
+ejecutar tanto el movil como el pc.
+
+falta aprender a controlar los disparos de notificaciones dentro de los scripts... 
+para que no sean molestos.
+
+logica para el envio de notificaciones. \_(°_°)_/
