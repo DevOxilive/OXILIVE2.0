@@ -1,4 +1,4 @@
-// Aplicacion del chat.
+Aplicacion del chat.
 INTRODUCCION:
 codigo separado, para que el envio de archivos sea más limpio , con el fin de porder dale
 más claridad y que sea más entendible...
@@ -13,7 +13,7 @@ DESARROLLO:
 la aplicacion está contruida con jquery, para la respuesta asincrona. "simulacion" 
 (reeconcideracion de websockets otra vez, por las peticiones del doctor)...
 
-investigar :(
+cosas que se pueden interar despues de una leía
 
 menu:
 el menu sollo es una consulta cada 2 segundos donde trae todos los usuarios a esepcion de el 
@@ -45,4 +45,14 @@ ejecutar tanto el movil como el pc.
 falta aprender a controlar los disparos de notificaciones dentro de los scripts... 
 para que no sean molestos.
 
-logica para el envio de notificaciones. \_(°_°)_/
+logica para el envio de notificaciones. \_(°_°)_/: puede que sea lo más complicado de planear
+por dos razones, el como y cuando y las validaciones.
+
+supongo aún, que si logramos integrar los websockets, por lo que puedo, iumaginarme. a la hora 
+de que se manden mensajes, el servidor conteste con la notificacion, pero sigo con la dudad si
+podemos hacer la validacion a que usuario debe mandar la notificacione el servidor de websocket.
+
+nota:
+
+revisar como es la conexion de puertos.
+hasta aquí mi reporte tulio, soy juan carlos bodoque.
