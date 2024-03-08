@@ -8,11 +8,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt = $con->prepare("SELECT * FROM usuarios WHERE usuario = '$usuario'");
         $stmt->execute();
         $datos = $stmt->fetch(PDO::FETCH_ASSOC);
-        if ($usuario === $datos['Usuario']) {
+        if ($usuario === $datos['usuario']) {
             if ($datos && password_verify($contraseña, $datos["paswword"])) {
                 $_SESSION['id'] = $datos['id_usuarios'];
-                $_SESSION['us'] = $datos["Usuario"];
-                $_SESSION['puesto'] = $datos['id_departamentos'];
+                $_SESSION['us'] = $datos["usuario"];
 ?>
                 <script>
                     alert("bienvenido");

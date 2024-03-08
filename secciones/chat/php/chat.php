@@ -43,9 +43,9 @@ try {
                 <div class="chat-header">
                     <a href="../index.php"> <- </a>
                             <?php
-                            echo '<img src="' . $filas['Foto_perfil'] . '" class="iconoUsuario" alt="foto de perfil">';
+                            echo '<img src="' . $filas['fotoPerfil'] . '" class="iconoUsuario" alt="foto de perfil">';
                             echo "<div class='usuario'>";
-                            echo "<h2>" . $filas['Usuario'] . "</h2>";
+                            echo "<h2>" . $filas['usuario'] . "</h2>";
                             echo $conectado;
                             echo "</div>";
                             ?>

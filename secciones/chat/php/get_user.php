@@ -9,20 +9,20 @@ try {
     $idus = $_SESSION['id'];
 
     include '../../../config/baseDatos.php';
-    $sentencia = $con->prepare("SELECT id_usuarios, Usuario, token, estatus, Foto_perfil 
-    FROM usuarios 
-    WHERE id_usuarios != $idus AND (id_departamentos = 1 OR id_departamentos =5 OR id_departamentos = 6 OR id_departamentos = 11 OR id_departamentos = 12) 
+    $sentencia = $con->prepare("SELECT id_usuarios, Usuario, token, estatus, fotoPerfil 
+    FROM usuarios, empleados
+    WHERE id_usuarios != $idus AND (departamento = 1 OR departamento =5 OR departamento = 6 OR departamento = 11 OR departamento = 12) 
     ORDER BY (SELECT MAX(id_msg) 
         FROM mensajes 
-        WHERE (id_salida = usuarios.id_usuarios AND id_entrada = $idus) 
-            OR (id_entrada = usuarios.id_usuarios AND id_salida = $idus)
+        WHERE (id_envia = usuarios.id_usuarios AND id_recibe = $idus) 
+            OR (id_recibe = usuarios.id_usuarios AND id_envia = $idus)
     ) DESC");
     $sentencia->execute();
     $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
 
     if (count($resultado) > 0) {
         foreach ($resultado as $fila) {
-            $sql2 = "SELECT * FROM mensajes WHERE (id_salida = {$idus} AND id_entrada = {$fila['id_usuarios']}) OR (id_entrada = {$idus} AND id_salida = {$fila['id_usuarios']}) ORDER BY id_msg DESC limit 1";
+            $sql2 = "SELECT * FROM mensajes WHERE (id_envia = {$idus} AND id_recibe = {$fila['id_usuarios']}) OR (id_recibe = {$idus} AND id_envia = {$fila['id_usuarios']}) ORDER BY id_msg DESC limit 1";
 
             $sent = $con->prepare($sql2);
             $sent->execute();
@@ -50,7 +50,7 @@ try {
                     <a href="php/chat.php?id=' . $fila['token'] . '" ' . $clase . '>
                         <div class="cuentas">
                             <div class="foto">
-                                <img src="' . $fila['Foto_perfil'] . '" alt="img perfil" id="fotoPerfil">
+                                <img src="' . $fila['fotoPerfil'] . '" alt="img perfil" id="fotoPerfil">
                             </div>
                             <div class="usuario">
                                 <b>' . $fila['Usuario'] . '</b>

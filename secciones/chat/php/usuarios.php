@@ -7,12 +7,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $usuario = $_POST['buscar'];
 
     //busqueda con OR agrupado y la condicion para evitar mostrar al usuario en sesion actual.
-    $sql = "SELECT estatus, id_usuarios,Foto_perfil, Nombres, Apellidos, Usuario, token FROM usuarios 
-    WHERE (CONCAT(Nombres, ' ', Apellidos, ' ') LIKE '%$usuario%' 
-    OR CONCAT(Apellidos, ' ' ,Nombres, ' ') LIKE '%$usuario%' 
-    OR (Nombres LIKE '%$usuario%'
-    OR Apellidos LIKE '%$usuario%' 
-    OR Usuario LIKE '%$usuario%'))
+    $sql = "SELECT estatus, id_usuarios, fotoPerfil, nombres, apellidos, usuario, token FROM usuarios, empleados
+    WHERE usuarioSistema = id_usuarios 
+    AND (CONCAT(nombres, ' ', apellidos, ' ') LIKE '%$usuario%' 
+    OR CONCAT(apellidos, ' ' ,nombres, ' ') LIKE '%$usuario%' 
+    OR (nombres LIKE '%$usuario%'
+    OR apellidos LIKE '%$usuario%' 
+    OR usuario LIKE '%$usuario%'))
     AND id_usuarios <> $id_sesionActual;"; // diferente de #sesion actual.
 
     $stmt = $con->prepare($sql);
@@ -30,10 +31,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <a href="php/chat.php?id=' . $value['token'] . '">
                         <div class="cuentas">
                             <div class="foto">
-                                <img src="' . $value['Foto_perfil'] . '" alt="img perfil" id="fotoPerfil">
+                                <img src="' . $value['fotoPerfil'] . '" alt="img perfil" id="fotoPerfil">
                             </div>
                             <div class="usuario">
-                                <b>' . $value['Usuario'] . ': ' . $value['Nombres'] . ' ' . $value['Apellidos'] . '</b>
+                                <b>' . $value['usuario'] . ': ' . $value['nombres'] . ' ' . $value['apellidos'] . '</b>
                                 <span>' . $conectado . '</span>
                             </div>
                         </div>
